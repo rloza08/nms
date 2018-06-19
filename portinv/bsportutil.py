@@ -1,0 +1,72 @@
+#!/usr/bin/python3
+
+import re, os, pdb, sys 
+from pprint import pprint
+
+#sys.path.insert(0, os.getcwd())
+
+from common.dbconnect import DbConnect
+from common.yamlparser import yamlParser
+from portinv.common.tmplparser import PageGenerator
+
+
+class BsPortUtil:
+    def __init__(self):
+        self.contents = {}
+        self.db = DbConnect('pidb')
+        self.db.connect()
+
+        if 'nmspy_Russel' in os.getcwd():
+            conf_file = os.getcwd() + "/portinv/bsportutil/bs-port_util.conf"
+        else:
+            conf_file = os.getcwd() + "/nmspy_Russel/portinv/bsportutil/bs-port_util.conf"
+
+        self.contents = self.parseConf(conf_file)
+
+    def parseConf(self, conf_file):
+        yamlParse = yamlParser(conf_file)
+        return yamlParse.parseFile()
+
+    def getResultValues(self, sql):
+        self.values = self.db.select_query(sql)
+        return self.values
+
+    def mainPage(self, formField):
+        res, restmpl, error, srchval = (None,) * 4 
+        query = ''
+        params = {}
+
+        if 'Sql' in formField:
+            val = formField['Sql'].value
+            error = 'Missing criteria for "{}"'.format(val) 
+            type = self.contents[val]['type']
+            params['Sql'] = val
+            query = self.contents[val]['sql']
+
+            if type == 'find': 
+                if 'srch' in formField:
+                    srchval = formField['srch'].value
+                    params['srch'] = srchval
+
+                    if srchval is not None:
+                        error = None
+                        sql = self.contents[val]['sql']
+                        query = sql % (srchval) 
+            elif type == 'else':
+                error = None
+
+            if error:
+                res = "<font color='red'>{}</font><br/>".format(error)
+            else:
+                if 'select' in query and 'limit' not in query:
+                    query = query + ' limit 5000'
+                res = self.getResultValues(query) 
+                params['header'] = self.contents[val]['fields'].split(",")
+
+            restmpl = 'tabletmpl.tmpl'
+
+        genObj = PageGenerator('bsportutil.tmpl')
+        html = genObj.pageGenerate(restmpl, values=self.contents, resPage=res, params=params)
+
+        return html
+

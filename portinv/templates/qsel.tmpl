@@ -1,0 +1,62 @@
+
+<html>
+    <title> Quick Select </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+    </head>
+    <body>
+      <div id="content">
+        <div id="main_page">
+           <h3>Port Inventory Database Quick Select</h3>
+           <form method="post" action="index.py"> 
+              <input type='hidden' name='param' value='qsel'/>
+              Use site filter or Mask to find a host for viewing.
+              <center>
+                <table align=center width=95%>
+                  <tr>
+                    <td align=left valign=top>
+                      Select Site Group:
+                      <select name="site">
+                       <option value="Any">--Any--</option>
+                       {% for value in values %}
+                           {% if params.site != 'None' %}
+                               {% if params.site  == value[0] %}
+                                   <option value="{{value[0]}}" selected>{{value[0]}}</option>
+                               {% else %}
+                                   <option value="{{value[0]}}">{{value[0]}}</option>
+                               {% endif %}
+                           {% else %}
+                               <option value="{{value[0]}}">{{value[0]}}</option>
+                           {% endif %}
+                       {% endfor %}
+                    </select>
+                  </td>
+                  <td align=left valign=top>or host mask:
+                      <input type="text" name="mask" value="{{params.mask}}" size="15" maxlength="15" />
+                  </td>
+                  <td align=left valign=top>filter for VLAN:
+                      <input type="text" name="vlan" value="{{params.vlan}}" size="15" maxlength="15" />
+                  </td>
+                  <td align=right width=15%>
+                    <input type="submit" name="button" value="Submit" />
+                  </td>
+              </tr>
+              <tr>
+                <td colspan=3>
+                  Use mask to narrow group selection.  Use "--Any--" group to select by mask only.  Use optional VLAN to restrict mask further.
+                </td>
+              </tr>
+            </table>
+            </center>
+         </form>
+       </div>
+       <div id='res_div'>
+         {% if resPage != 'None' %}
+            {{ resPage|safe }}
+         {% endif %}
+       </div>
+    </div>
+  </body>
+</html>
+

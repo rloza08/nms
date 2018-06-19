@@ -1,0 +1,101 @@
+
+<html>
+<title>NMS Tools</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/main/main.css"/>
+<!--    <script src="js/main/jquery_3.3.1.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-1.12.2.min.js"
+  integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="
+  crossorigin="anonymous"></script>
+
+    <script src="js/main/main.js"></script>
+    <title>NMS Main Page</title>
+</head>
+<body onload="screenResolution();" onresize="screenResolution();"> 
+  <form name="mainForm" id="mainForm" action="index.py" method="POST">
+    <input name="menuContents" id="menuContents" type="hidden" value=""/>
+  <div id='container'>
+    <div id='top'>
+      <table cellpadding='0' cellspacing='5'>
+        <tr>
+          <td>
+            <img src="images/networkplaceABS-Dev.jpg" alt="Safeway Home Page" title="Safeway Home Page">
+          </td>
+        </tr>
+      </table>
+    </div>
+<!--
+    <div class="corner-tr">&nbsp;</div>
+    <div class="corner-tl">&nbsp;</div>
+-->
+    <div id="mid_div">
+       &nbsp;
+    </div>
+    <div id='leftnav'> 
+      <table cellspacing='1' cellpadding='2' text-align='Center'>
+          {% for item in navigation %}
+	      <tr text-align='left'>
+                  <td>
+	              <a style="color: #FFFFFF" href="javascript: mainPageAjax('{{item.URL}}');" title="{{item.tooltip}}" alt="{{item.tooltip}}">{{item.title}}</a></br>
+                  </td>
+              </tr>
+          {% endfor %}
+      </table>
+    </div>
+    <div id="mid_div">
+       &nbsp;
+    </div>
+<!--
+    <div id="corner-tr" class="corner-tr">&nbsp;</div>
+    <div class="corner-tl">&nbsp;</div>
+-->
+    <div id='main_page'>
+      <table cellspacing='2' cellpadding='2'> 
+        <tr>
+          <td>
+             <h3>{{ header.header }}</h3>
+             <hr/>
+         </td>
+        </tr>
+        <tr valign='top'>
+          <td>
+              <ol><p>
+              {% for item in main %}
+		{% if item == 'tag' %}
+		   {% for dic in main[item] %}
+		       <li><a href="javascript:display('{{dic.URL}}', 800, 600);">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+		   {% endfor %}
+		{% else %}
+                   {% if item != 'tag1' and item != 'tag2' %}
+		       <h4>{{item}}</h4>
+                   {% endif %}
+                   {% if item == 'tag2' %}
+                       <hr/>
+                   {% endif %}
+	           {% for dic in main[item] %}
+                       <li><a href="javascript: display('{{dic.URL}}', '800', '600');">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+		   {% endfor %}
+		{% endif %}
+              {% endfor %}
+              </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>
+             <hr/>
+             {% if footer.footer != None %}
+                {{ footer.footer|safe }}
+             {% endif %}
+          </td>
+        </tr>
+      </table>
+    </div>
+<!--    <div class="corner-br">&nbsp;</div>
+    <div class="corner-bl">&nbsp;</div>
+-->
+  </div>
+  </form>
+</body>
+</html>
+

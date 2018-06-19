@@ -1,0 +1,96 @@
+
+<html>
+    <head>
+        <title>Create ASA ACL CSV File</title>
+        <script src="js/main/main.js"></script>
+        <script src="js/main/jquery_3.3.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+        <style>
+           table.res, td.res {
+               border: 1px solid #ddd;
+               text-align: left;
+           }
+
+           table.res1 {
+               border-collapse: collapse;
+               width: 30%;
+           }
+
+           table.res {
+               border-collapse: collapse;
+               width: 100%;
+           }
+
+           td.res {
+               padding: 2px;
+           }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="main_page">    
+                <form method="post" id='hpnaaclasacsv' action="index.py" enctype="multipart/form-data"> 
+                    <input type="hidden" name="param" value="hpnaaclasacsv"/>
+                    <h3><b>Create ASA ACL CSV File</b></h3>
+                    <center>
+                       <table border=0 width=100%>
+                         <tr>
+                           <td align=center valign=top>Select HPNA Group:&nbsp;
+                             {% if params.hpnagrp %}
+                                 <select name="hpnagrp" valign='center'>
+                                     {% for value in params.hpnagrp|dictsort(true) %}
+                                         {% if params.hpna %}
+                                             {% if params.hpna == value[0] %}
+                                                 <option value="{{value[0]}}" selected>{{value[0]}}</option>
+                                             {% else %}
+                                                 <option value="{{value[0]}}">{{value[0]}}</option>
+                                             {% endif %}
+                                         {% else %}
+                                             <option value="{{value[0]}}">{{value[0]}}</option>
+                                         {% endif %}
+                                     {% endfor %}
+                                 </select>
+                             {% endif %}
+                          </td>
+                          <td align=right valign=top>
+                            or paste a list of store numbers:&nbsp;
+                          </td>
+                          <td valign=top>
+                             <textarea name="list" rows="5" cols="19"></textarea>
+                          </td>
+                          <td align=right valign=top>
+                            <label>
+                              <input type="checkbox" name="tftp" value="1"/>Create files for TFTP copy
+                            </label>
+                            <input type="submit" name="button" value="Submit"/>
+                          </td>
+                        </tr>
+                     </table>
+                   </center>
+                </form>
+            </div>
+            <div id='res_div'>
+                {% if params.count %}
+                    <h3>
+                    Select an HPNA group from the pulldown or enter a list of store numbers in the text box.<br/><br/>
+                    If any entries in box exist the pulldown selection will be ignored. Clear box to use pulldown.<br/><br/>
+                    Manually entered stores will override exclusions.<br/><br/>
+                    Current Division Counts Defined in HPNA for Cisco ASA Firewalls:<br/><br/>
+
+                    <table class='res1'>
+                       <tr>
+                          <td class='res'><b>HPNA Group</b></td>
+                          <td class='res'><b>Count</b></td>
+                       </tr>
+                       {% for value in params.count|dictsort(true) %}
+                          <tr>
+                            <td class='res'> {{ value[0] }} </td>
+                            <td class='res'> {{ value[1] }} </td>
+                          </tr>
+                       {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

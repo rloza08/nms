@@ -1,0 +1,220 @@
+
+#container
+{
+    height: 100%;
+    background-color: #747474;
+}
+
+#top
+{
+    background-color: #FFFFFF;
+    padding: .4em;
+    border-bottom: 1px;
+    height: 8%;
+}
+
+#main_page
+{
+    float: center;
+    width: 95%;
+    padding: .7em;
+    background-color: #FFFFFF;
+    margin: 4px auto;
+    color: #333;
+    border: 1px solid gray;
+    line-height: 80%;
+    height: 25%;
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+#res_div
+{
+    float: center;
+    width: 95%;
+    height: 65%;
+    padding: .7em;
+    background-color: #FFFFFF;
+    margin: 4px auto;
+    color: #333;
+    border: 1px solid gray;
+    line-height: 80%;
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+#leftnav
+{
+    float: left;
+    background-color: #22437f;
+    padding: .7em;
+    margin: 4px auto;
+    border: 1px solid gray;
+    line-height: 90%;
+    height: 38%;
+    overflow: auto;
+    scroll-behavior: auto;
+}
+
+h1, h2, h3, h4 {
+    font-family: luxi sans,sans-serif;
+    color: #22437f;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 1.75em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+h3 {
+    font-size: 1.0em;
+}
+
+h4 {
+    font-size: .75em;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+table tr {
+    font-size: 0.7em;
+}
+
+#content {
+    font-family: luxi sans,sans-serif;
+    font-size: .8em;
+    color: #22437f;
+}
+
+#content li {
+    padding: 1pt;
+}
+
+#content h1 {
+    margin-top: 0;
+}
+
+#content a img {
+    margin: 1px;
+    border: 0;
+}
+
+#content a:hover img {
+    margin: 0;
+    border: 1px solid #f00;
+}
+
+#content a img.noborder {
+    margin: 0;
+    border: 0;
+}
+
+#content a:hover img .noborder {
+    margin: 0;
+    border: 0;
+}
+
+#pre.content  {
+    font-family: monospace;
+    font-size: 1.25em;
+}
+
+strong.application {
+    font-weight: bold;
+}
+
+body {
+    font-size: 0.8em;
+    font-family: bitstream vera sans,sans-serif;
+    margin: 0;
+    padding: 0; 
+}
+
+a:link {
+    color: #900;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #900;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f20;
+    text-decoration: none;
+}
+
+a[name] {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#header {
+    background-color: #fff;
+    height: 64px;
+}
+
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
+    background-color: #d9d9d9;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    display: none;
+}
+
+.corner-tl { float: left; top: 4px; left: 18px; }
+.corner-tr { float: left; top: 4px; }
+.corner-bl { float: left; top: 761px; left: 0px; }
+.corner-br { float: right; left: -26px; top: 761px; } 
+
+/* dev background: #a0a0a0 */
+/* prod background-color: #d9d9d9 */
+
+html>body .corner-tl { background: #747474 url("../../images/corner-tl.png") no-repeat left top; }
+html>body .corner-tr { background: #747474 url("../../images/corner-tr.png") no-repeat right top; }
+html>body .corner-bl { background: #747474 url("../../images/corner-bl.png") no-repeat left bottom; }
+html>body .corner-br { background: #747474 url("../../images/corner-br.png") no-repeat right bottom; }
+
+.corner-tl { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/corner-tl.png',sizingMethod='scale'); }
+.corner-tr { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/corner-tr.png',sizingMethod='scale'); }
+.corner-br { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/corner-br.png',sizingMethod='scale'); }
+.corner-bl { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../images/corner-bl.png',sizingMethod='scale'); }
+
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
+    display: block;
+}
+
+#footer {
+    font-size: 0.75em;
+    text-align: center;
+    color: #777;
+    margin-bottom: 2em;
+}
+
+#middle-one, #middle-two, #middle-three {
+    font-size: 1em;
+    /* position: relative; */ /* relative to utilize z-index */
+    width: auto;
+    min-width: 120px;
+    margin: 10px;
+    z-index: 3; /* content can overlap when the browser is narrow */
+}
+
+#middle-two, #middle-three {
+    margin-left: 11em;
+    padding-left: 24px;
+}
+
+#middle-three {
+    margin-right: 13em;
+    padding-right: 24px;
+}
+

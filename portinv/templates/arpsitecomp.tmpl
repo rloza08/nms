@@ -1,0 +1,187 @@
+
+<html>
+    <head>
+        <title>Compare Current Port Inventory to Recent</title>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+        <script src="js/main/jquery_3.3.1.js"></script>
+        <script src="js/portinv/arpsitecomp.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+        <style>
+           #pageloader {
+               background: rgba( 255, 255, 255, 0.8 );
+               display: none;
+               height: 100%;
+               position: fixed;
+               width: 100%;
+               z-index: 9999;
+            }
+
+           #pageloader img {
+               left: 42%;
+               margin-left: -32px;
+               margin-top: -32px;
+               position: absolute;
+               top: 50%;
+           }
+
+	   table.res, td.res {    
+	       border: 1px solid #ddd;
+	       text-align: left;
+           }
+
+           table.res1 {
+               border-collapse: collapse;
+               width: 50%;
+           }
+
+           table.res {
+               border-collapse: collapse;
+               width: 100%;
+           }
+
+           td.res {
+               padding: 2px;
+           }
+        </style>
+    </head>
+    <body>
+	<div id="pageloader">
+	    <img src="images/ajax-loader.gif" id="loading_image"/>
+	</div>
+        <div id="content">
+            <div id="main_page">    
+                <form method="post" id='arpsite' action="index.py" enctype="multipart/form-data"> 
+                    <input type="hidden" name="param" value="arpsitecomp"/>
+                    <h3><b>Compare Current Port Inventory to Recent</b></h3>
+                    {% set filters = ['10.x.d', '10.x.c', '10.x.b', '10.x.a', '10.y.h', '10.y.g', '10.y.f', '10.y.e'] %}
+                    <table rows=1 cols=7 border=0 width=90%>
+                        <tr>
+                            <td align=right>Enter store number:&nbsp</td><td align=left>
+                                {% if params.site %}
+                                    <input type="text" name="site" id="site" value="{{params.site}}" size="4"/>
+                                {% else %}
+			            <input type="text" name="site" id="site" size="4"/>
+                                {% endif %}
+                            </td>
+                            <td>Filter:
+                                <select name="filt" >
+			            <option value="none">none</option>
+                                    {% for option_val in filters %} 
+                                        {% if params.filt %}
+                                            {% if params.filt == option_val %}
+                                                <option value="{{option_val}}" selected>{{option_val}}</option>
+                                            {% else %}
+                                                <option value="{{option_val}}">{{option_val}}</option>
+                                            {% endif %}
+                                        {% else %}
+                                            <option value="{{option_val}}">{{option_val}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                {% if params.ping %}
+                                    {% if params.ping == 'Ping' %}
+                                        {% set ping = 'checked' %}
+                                        {% set poll = ''  %}
+                                    {% else %}
+                                        {% set ping = '' %}
+                                        {% set poll = 'checked' %}
+                                    {% endif %}
+                                {% else %}
+                                    {% set ping = 'checked' %}
+                                    {% set poll = ''  %}
+                                {% endif %}
+                                <label><input type="radio" name="ping" value="Ping" {{ ping }}/>Ping</label>
+                                <label><input type="radio" name="ping" value="Poll" {{ poll }}/>Poll</label>
+                            </td>
+                            <td>
+                                <label>
+                                   {% if params.boot %}
+                                       <input type="checkbox" name="boot" value="boot" checked/>UpTime
+                                   {% else %}
+                                       <input type="checkbox" name="boot" value="boot"/>UpTime
+                                   {% endif %}
+                                </label>
+                            </td>
+                            <td align=right>
+                                <input type="button" name="Submit" onclick="main();" value="Submit"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id='res_div'>
+                {% if values.boot %}
+                    <label><b> Current Network Device Uptimes for Store {{ params.site }} </b></label>
+                    <hr/>
+                <table class='res1'>
+                   <tr>
+                       <td class='res'><b>Host</b></td>
+                       <td class='res'><b>Days</b></td>
+                       <td class='res'><b>Hours</b></td>
+                       <td class='res'><b>Mins</b></td>
+                       <td class='res'><b>Secs</b></td>
+                   </tr>
+                   {% for key in values.boot %}
+                       <tr>
+                         <td class='res'> {{key}} </td>
+                         {% for val in values.boot[key] %}
+                            <td class='res'> {{ val }} </td>
+                         {% endfor %}
+                       </tr>
+                   {% endfor %}
+               </table>
+               <hr/>
+            {% endif %}
+            {% if values.msg %}
+               <font color='blue'> {{ values.msg|safe }} </font>
+               <br/>
+               <br/>
+               <table class='res'>
+                  <tr class='res'>
+                    <td colspan='4' bgcolor='cyan' align='center'>Previous location unknown</td>
+                    <td colspan='4' bgcolor='yellow' align='center'>Host found on undetermined neighbor device</td>
+                  </tr>
+                  <tr class='res'>
+                     <td class='res'><b> IP Addr <b/></td>
+                     <td class='res'><b> MAC Addr <b/></td>
+                     <td class='res'><b> Previous Host:Port <b/></td>
+                     <td class='res'><b> Current if Different <b/></td>
+                     <td class='res'><b> VLAN <b/></td>
+                     <td class='res'><b> DNS Name <b/></td>
+                     <td class='res'><b> Assignment <b/></td>
+                     <td class='res'><b> Last Seen <b/></td>
+                  </tr>
+               {% if values.res %} 
+                  {% for list in values.res %}
+                    <tr bgcolor='{{ list[8] }}'>
+                       <td class='res'><font color='{{list[9]}}'>{{ list[0] }}</font></td>
+                       <td class='res'>{{ list[1] }}</td>
+                       <td class='res'>{{ list[2] }}</td>
+                       <td class='res'>{{ list[3] }}</td>
+                       <td class='res'>{{ list[4] }}</td>
+                       <td class='res'>{{ list[5] }}</td>
+                       <td class='res'>{{ list[6] }}</td>
+                       <td class='res'>{{ list[7] }}</td>
+                     </tr>
+                  {% endfor %}
+               {% else %}
+                     <tr class='res'>
+                         <td colspan='8' align='center'><b> No records found </b></td>
+                     </tr>
+               {% endif %}
+               </table>
+            {% else %}
+               <h3>Enter store number and select desired filter.</h3>
+<br/><h3>Select 'Ping' to ping existing known inventory.<br/><br/>Select 'Poll' to do a full real time inventory collection.
+<br/><br/><br/>Only VLAN4 switches are polled. Legacy NetD network devices are not polled.
+<br/><br/>Addresses on legacy network devices will appear on a single port on the upstream neighbor of the legacy hub/switch.
+<br/<br/><br/><br/>Poll may take up to 90 seconds to complete.</h3>
+<h3>Check 'UpTime' for current uptimes of network devices to see recent reboots or cold starts.</h3>
+            {% endif %}
+        </div>
+       </div>
+    </body>
+</html>

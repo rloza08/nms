@@ -1,0 +1,49 @@
+  <table cellspacing='2' cellpadding='2'>
+   {% if resPage is string %}
+       <tr>
+          <td>
+            {{ resPage|safe }}
+          </td>
+       </tr>
+   {% else %}
+        {% if 'header' in params %}
+           <tr>
+             {% for val in params['header'] %}
+                <td><b> {{ val }} </b></td>
+             {% endfor %}
+           </tr>
+            {% for arr in resPage %}
+               <tr>
+                 {% for val in arr %}
+                   {% if loop.index == 1 and params['header'][0] == 'Host' %}
+                     <td><a href="javascript:display('index.py?param=qsel&host={{ val}}', 800, 600);">{{ val }}</a></td>
+                   {% else %}
+                     <td> {{ val }} </td>
+                   {% endif %}
+                 {% endfor %}
+               </tr>
+            {% endfor %}
+        {% else %}
+          <tr>
+            <td width="10%"><b>Host</b></td>
+            <td width="10%"><b>Division</b></td>
+            <td width="10%"><b>Dist</b></td>
+            <td width="25%"><b>Street</b></td>
+            <td width="20%"><b>City</b></td>
+            <td width="15%"><b>ST</b></td>
+            <td width="10%"><b>Zip</b></td>
+          </tr>
+          {% for values in resPage %}
+           <tr>
+             <td><a href="javascript:display('index.py?param=qsel&host={{ values[0] }}', 800, 600);">{{ values[0] }}</a></td>
+             <td>{{ values[1] }}</td>
+             <td>{{ values[2] }}</td>
+             <td>{{ values[3] }}</td>
+             <td>{{ values[4] }}</td>
+             <td>{{ values[5] }}</td>
+             <td>{{ values[6] }}</td>
+           </tr>
+          {% endfor %}
+        {% endif %}
+     {% endif %}
+  </table>

@@ -1,0 +1,61 @@
+pidb:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: localhost 
+    DBPORT: 3306
+cmdb:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+capacity:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+circuits:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+hpna:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+ipam:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+itnm:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+projects:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+slog:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+smon:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+security:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+workarea:
+    DBUSER: guest
+    DBPASS: guest
+    DBHOST: 172.18.132.224
+    DBPORT: 3306
+

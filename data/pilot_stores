@@ -1,0 +1,34 @@
+#
+# pilot_stores - transposed and pasted from spreadsheet found at
+# http://home.safeway.com/it/dept/chgmgmt/stsc/pilot_stores.xls
+#
+# PCI addititons added on 08/30/2007
+#
+# space or tab delimited
+#
+#Div          Pri	Exp	Exp	Exp	Exp	Exp	
+DEN         0017	0008	1554	1599	1877	2466
+EAS         4114	0107	1085	1276	1606	1715
+NCA         1932	0768	0917	0962	0982	1701
+SWE        1201	0247	0752	1487	1549	1566
+POR	4387	0508	0521	1231	1451	1529
+SOU         1247	1011	2643	2566	3014	3650
+SEA	0558	0374	0496	0533	1294	1805
+SCA         2188	2333	2560	3083	3208
+INT            0259
+EAS          2713
+NCA          2856
+SWE         1515
+SCA         2093 	2596
+EAS         1804
+SOU         1717
+SCA          3208
+#
+# PCI additions
+#
+#
+# end of data
+#
+# last edited by jnepo01 at 2017/07/30 22:48
+#
+

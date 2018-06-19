@@ -1,0 +1,40 @@
+
+<html>
+    <title> Quick Select </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+    </head>
+    <body>
+     {% if res is string %}
+       <font color="red"><i> {{ res }} </i></font>
+     {% else %}
+      <table cellspacing='0' cellpadding='0'>
+      <tr>
+       <td width="5%"><b>Port</b></td>
+       <td width="5%"><b>VL</b></td>
+       <td width="15%" align='left'><b>MAC</b></td>
+       <td width="10%" align='center'><b>IP Addr</b></td>
+       <td width="35%" align='center'><b>Hostname or Port Label</b></td>
+       <td width="20%" align='center'><b>MAC OUI</b></td>
+       <td width="10%"><b>date</b></td>
+      </tr>
+      {% for values in res %}
+       <tr>
+          <td>{{ values[0] }}</td>
+          <td>{{ values[1] }}</td>
+          <td align='left'>{{ values[2] }}</td>
+          <td align='center'>{{ values[3] }}</td>
+          {% if values[7] == 'Browse to neighbor' %}
+            <td align='center'><a href='index.py?param=qsel&host={{ values[4] }}'><span title="{{values[7]}}">{{ values[4] }}</span></a></td>
+          {% else %}
+            <td align='center'><span title="{{values[7]}}">{{ values[4] }}</span></td>
+          {% endif %}
+          <td align='center'>{{ values[5] }}</td>
+          <td>{{ values[6] }}</td>
+       </tr>
+      {% endfor %}
+     </table>
+    {% endif %}
+  </body>
+</html>

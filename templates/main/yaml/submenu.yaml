@@ -1,0 +1,201 @@
+Port Inventory:
+    header: "Safeway NMS Store Switch Port Inventory and Assignment Utilities"
+    footer: "<a href=\"javascript: mainPageAjax('Port Inventory');\">Previous Menu</a>"
+    tag:
+        Store Port Inventory Database Query Utilities:
+            URL:
+            DESCR: "Utilies to query store switch port inventories"
+        ARP Site Comparison:
+            DESCR: "Compare current ARP table to recent port inventory for a single store"
+            URL: "javascript: display('index.py?param=arpsitecomp', 800, 600);" 
+        ARP Base Comparison:
+            DESCR: "Compare current ARP table between two stores for comparion"
+            URL:
+        ARP Based Device Inventory:
+            DESCR: "Show store inventories summaries based on ARP data and VLAN assignments"
+            URL:
+        ARP Search:
+            DESCR: "Search store ARP tables for addresses at given offset(s)"
+            URL:
+        Base Offset Search:
+            DESCR: "Search store port inventory tables for addresses at given offset"
+            URL:
+        ARP/FDB Based Device Inventory:
+            DESCR: "Store Device Counts from Port Inventory Based on Assigned Addresses"
+            URL:
+        Store Switch Used Ports:
+            DESCR: "Show where a specific store switch port is being used accross all stores and by what"
+            URL:
+        Store VLAN usage:
+            DESCR: "Show used address count by VLAN for all stores based on ARP history"
+            URL:
+        Meraki PIdb View:
+            DESCR: "Quick select port view for known Meraki sites using Port Inventory"
+            URL:
+        Meraki DB View:
+            DESCR: "Quick view using Meraki dashboard data"
+            URL:
+        Meraki Site Compare:
+            DESCR: "Compare current Meraki ping response to recent port inventory"
+            URL:
+        Funnel Shadow:
+            DESCR: "Store IP assignments from Funnel"
+            URL:
+        Store VLAN Audit Reports:
+            DESCR: "Show VLANs defined on routers and where"
+            URL:
+
+HPOO Flows:
+    header: "HPOO Flows for Retail Network Device Information"
+    footer: "<a href=\"javascript: mainPageAjax('Projects');\">Previous Menu</a>"
+    tag:
+        Show ARP:
+            URL:
+            DESCR: "Show ARP tables on a retail host"
+        Show MAC:
+            DESCR: "Show MAC tables on a retail switch"
+            URL:
+        Show Int:
+            DESCR: "Show interface status, speeds and duplex on a retail switch"
+            URL:
+
+Meraki Tools:
+    header: "Meraki Rollout Tools"
+    footer: "<a href=\"javascript: mainPageAjax('Projects');\">Previous Menu</a>"
+    tag:
+        PIdb Port View:
+            DESCR: "Quick select port view for known Meraki sites using Port Inventory"
+            URL:
+        Meraki DB View:
+            DESCR: "Quick view using Meraki dashboard data"
+            URL:
+        Site Compare:
+            DESCR: "Compare current Meraki ping response to recent port inventory"
+            URL:
+        Cust WiFi:
+            DESCR: "Set WL ports for customer facing WiFi"
+            URL:
+
+Aruba Uplift Tools:
+    header: "Aruba Uplift Tools"
+    footer: "<a href=\"javascript: mainPageAjax('Projects');\">Previous Menu</a>"
+    tag:
+        Upload CSV:
+            DESCR: "Create switch configurations from site survey CSV upload"
+            URL:
+        Switch Config:
+            DESCR: "Create switch configurations from pasting site survey data"
+            URL:
+        Port Shut:
+            DESCR: "Create switch configurations to shut down legacy ports"
+            URL:
+        Switch IDFs DS:
+            DESCR: "Switch locations by MDF/IDF for Distribution/Supply"
+            URL:
+        Switch IDFs BS:
+            DESCR: "Switch locations by MDF/IDF for other backstage"
+            URL:
+        Aruba AP Port Move:
+            DESCR: "Create Aruba port move CSV files"
+            URL:
+        Aruba Used Port Mapper:
+            DESCR: "Create Aruba port mapper CSV files with incrementing options"
+            URL:
+        Aruba Final Pass:
+            DESCR: "Create switch configs for for pass 3 from uploaded CSV"
+            URL:
+
+ACL Pushes:
+    footer: "<a href=\"javascript: mainPageAjax('HPNA');\">Previous Menu</a>"
+    header: ""
+    ACL Rollout Tools:
+        Inventory Status:
+            DESCR: "HPNA realtime reporting and inventory comparisons."
+            URL:
+        Applied Status:
+            DESCR: "Compare current ACL seedfile timestamp to current config archives"
+            URL:
+        Stage ASA US Seedfile:
+            DESCR: "View and/or update master ASA seedfile for processing"
+            URL:
+        Make ASA ACL CSV files:
+            DESCR: "Create CSV files for using HPNA to push ASA ACLs to retail firewalls"
+            URL: "javascript: display('index.py?param=hpnaaclasacsv', 800, 600);" 
+        Edit ASA eC Inclusions:
+            DESCR: "Edit inclusions to merge with production ACL for eCert seedfile"
+            URL:
+        Edit ASA eC Exclusions:
+            DESCR: "Edit exclusions to NOT include from production when building eCert seedfile"
+            URL:
+        Build ASA eC Seedfile:
+            DESCR: "View and/or build ASA eCerts seedfile from exceptions merged with production"
+            URL:
+        eCert ACL Hits:
+            DESCR: "eCerts ACL hits report based on built seed"
+            URL:
+        eCert Single Store:
+            DESCR: "Single eCerts view and restore tool"
+            URL:
+        ACL Single Store:
+            DESCR: "Create a single store from current seed. Use for 'copy and paste' if needed"
+            URL:
+        ACL Compare:
+            DESCR: "Compare a running config against current ACL seedfile"
+            URL:
+        Edit Tables:
+            DESCR: "Edit tables and support files"
+            URL:
+        Make Seed:
+            DESCR: "Create seedfile from existing store configuration. Use copy one-off sites"
+            URL:
+        ACL Warnings:
+            DESCR: "View resolved warnings from prod and eCert seedfiles"
+            URL:
+        ACL Hits:
+            DESCR: "Retail ACL hits report based on current seed."
+            URL:
+        eCert ACL Hits:
+            DESCR: "eCerts ACL hits report based on current seed."
+            URL:
+        ACL Site:
+            DESCR: "Last hits by rule for a given site"
+            URL:
+        Parse HPNA Session:
+            DESCR: "Parse HPNA session logs for easier reading"
+            URL::
+        ACL Single Store:
+            DESCR: "Create a single store from current seed. Use for 'copy and paste' if needed"
+            URL:
+        ACL Compare:
+            DESCR: "Compare a running config against current ACL seedfile"
+            URL:
+        Edit Tables:
+            DESCR: "Edit tables and support files"
+            URL:
+        Make Seed:
+            DESCR: "Create seedfile from existing store configuration. Use copy one-off sites"
+            URL:
+        ACL Warnings:
+            DESCR: "View resolved warnings from prod and eCert seedfiles"
+            URL:
+        ACL Hits:
+            DESCR: "Retail ACL hits report based on current seed."
+            URL:
+        ACL Site:
+            DESCR: "Last hits by rule for a given site"
+            URL:
+        Parse HPNA Session:
+            DESCR: "Parse HPNA session logs for easier reading"
+            URL:
+    Meraki ACL Tools for Reference Only:
+        Meraki ACLs:
+            URL:
+            DESCR: "List east-west rules built from templates"
+    Legacy eCert Tools for Reference Only:
+        Stage ASA eC Seedfile:
+            URL:
+            DESCR: "View and/or update ASA eCert labs seedfile for processing"
+        Compare eC Seedfile:
+            DESCR: "Compare production seedfile to eCert seedfile"
+            URL:
+

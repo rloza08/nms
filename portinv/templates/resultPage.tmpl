@@ -1,0 +1,62 @@
+
+<html>
+    <title> Quick Select </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+    </head>
+    <body>
+     <table cellspacing='0' cellpadding='0'>
+     {% for key in hd_det %}
+        <tr>
+        {% if key == 'hostname' %}
+          <td> <b>Hostname: <font color="blue">{{ hd_det[key] }} </font></b></td>
+        {% elif key == 'details' %}
+           <td> <b>Host details:<font color="blue"> {{ hd_det[key] }} </font></b></td>
+        {% else %}
+           <td> <b>Location: <font color="blue"> {{ hd_det[key] }} </font></b></td>
+        {% endif %}
+        </tr>
+     {% endfor %}
+     </table>
+     <hr/>
+     {% if res is string %}
+       <font color="red"><i> {{ res }} </i></font>
+     {% else %}
+      <table cellspacing='0' cellpadding='0'>
+      <tr>
+       <td width="5%"><b>Slot</b></td>
+       <td width="5%"><b>Port</b></td>
+       <td width="5%"><b>VL</b></td>
+       <td width="10%"><b>Dscr</b></td>
+       <td width="15%"><b>MAC</b></td>
+       <td width="10%"><b>IP Addr</b></td>
+       <td width="20%"><b>Hostname or Port Label</b></td>
+       <td width="20%"><b>MAC OUI</b></td>
+       <td width="10%"><b>date</b></td>
+      </tr>
+      {% for values in res %}
+        {% if values[10] %}
+          <tr bgcolor="{{ values[10] }}">
+        {% else %}
+          <tr>
+        {% endif %}
+          <td>{{ values[0] }}</td>
+          <td>{{ values[1] }}</td>
+          <td>{{ values[2] }}</td>
+          <td>{{ values[3] }}</td>
+          <td>{{ values[4] }}</td>
+          <td>{{ values[5] }}</td>
+          {% if values[9] == 1 %}
+              <td><a href="index.py?param=qsel&host={{ values[6] }}">{{ values[6] }} </a></td>
+          {% else %}
+              <td>{{ values[6] }}</td>
+          {% endif %}
+          <td>{{ values[7] }}</td>
+          <td>{{ values[8] }}</td>
+       </tr>
+      {% endfor %}
+     </table>
+    {% endif %}
+  </body>
+</html>

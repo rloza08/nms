@@ -1,0 +1,51 @@
+<table cellspacing='2' cellpadding='2'> 
+  <tr>
+    <td>
+       <h3>{{ header.header }}</h3>
+       <hr/>
+   </td>
+  </tr>
+  <tr valign='top'>
+    <td>
+        {% for item in main %}
+          {% if item == 'tag' %}
+             <ol><p>
+             {% for dic in main[item] %}
+                  <li><a href="{{dic.URL}}">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+                  <!--   <li><a href="javascript: display('{{dic.URL}}', '800', '600');">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li> -->
+             {% endfor %}
+             </ol>
+          {% else %}
+             {% if item != 'tag1' and item != 'tag2' %}
+                 <h4>{{item}}</h4>
+             {% endif %}
+             {% if item == 'tag2' %}
+                 <hr/>
+             {% endif %}
+                <ol><p>
+                  {% for dic in main[item] %}
+                      {% if dic.URL %}
+                          {% if 'javascript' in dic.URL %}
+                              <li><a href="{{dic.URL}}">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+                          {% else %}
+                              <li><a href="javascript: display('{{dic.URL}}', '800', '600');">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+                          {% endif %}
+                      {% else %}
+                          <li><a href="">{{dic.title}}</a>&nbsp;--&nbsp;{{dic.DESCR}}</li>
+                      {% endif %}
+                  {% endfor %}
+                </ol>
+          {% endif %}
+        {% endfor %}
+    </td>
+  </tr>
+  <tr>
+    <td>
+       <hr/>
+           {% if footer.footer != None %}
+              {{ footer.footer|safe }}
+           {% endif %}
+    </td>
+  </tr>
+</table>
+

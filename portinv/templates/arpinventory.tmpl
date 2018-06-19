@@ -1,0 +1,50 @@
+
+<html>
+	<title> Port Inventory DB  </title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+		<script src="js/main/main.js"></script>
+	</head>
+	<body>
+	  <div id="content">
+		<div id="main_page">
+			<h3><strong>Store Device Counts Based on ARP Data</strong></h3>
+			<form method="post" action="index.py">
+				<input type='hidden' name='param' value='arpinvent'/>	
+				<center>
+					<table algin=center width=95%>
+						<tr>
+							<td align=left valign=top>
+							Select VLAN Assigned Range:
+							<select name = "vlan">
+							{% for value in values[0] %}
+								{% for items in value %} 
+									<option value ="{{items}}">{{items}}</option>
+								{% endfor %}
+							{% endfor %}
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td align=left valign=top>
+							Select Division:	
+							<select name = "division">
+							<option value="Any">--All--</option>
+							{% for value in values[1] %}
+								{% for items in value %}
+									<option value = "{{items}}">{{items}}</option>
+								{% endfor %}
+							{% endfor %}
+							</select>
+							</td>
+							<td align=right width=15%>
+								<input type="submit" name="button" value = "Submit"/>
+							</td>
+						</tr>
+					</table>	
+				</center>	
+			</form>
+		</div>
+	  </div>
+	</body>
+</html>

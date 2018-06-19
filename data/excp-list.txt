@@ -1,0 +1,96 @@
+#
+# exclusions.txt - ACL exclusions to append to dynamic results found by
+#                  acl/bin/exclusions.pl
+#
+# host   -- router name
+# reason -- identifier flag for report
+# port   -- optional port exclusion
+#
+# comman delimited
+# host,reason[,port]
+#
+fw1932a,1436387 pilot,New Emulator required to remove SNA and NVDM
+fw1195a,1436387 pilot,New Emulator required to remove SNA and NVDM
+fw2511a, TEMP Pharmacy Training for EPS, vlan70 RIT 1424638
+fw1930a,1428583 TEMP Performance Testing for Seattle and NorCal
+fw0477a,1428583 TEMP Performance Testing for Seattle and NorCal
+fw1600a,1428583 TEMP Performance Testing for Seattle and NorCal
+fw3010a,1428583 TEMP Performance Testing for Seattle and NorCal
+fw1257a,1428583 TEMP Performance Testing for Seattle and NorCal
+fw2315a,US TC55 Titan Project 1419481
+fw1211a,US TC55 Titan Project
+fw1502a,US TC55 Titan Project
+fw0177a, RIT 1436317 Ecom Image Load Balancing
+fw1788a, RIT 1436317 Ecom Image Load Balancing
+r1507,US required 10.235.127.61 tcp 1229 on (VLAN19) 388149
+r1829,US Add rules for Rx to Tarantella
+r2814,US B50 from 4905 (4526 closed) to 2814 - Permission for 4905 vlan70 to ssh to 10.237.91.23 RIT 1008336
+r4905,US 4526 moved in to 4905 - DVR for PK Compounder Adjuciation for Pharmacy Transmiting Claims
+r0714,US Pin pad access for students to access funds to pay for swy purchases RIT 1203115
+fw1507a, required 10.235.127.61 tcp 1229 on (VLAN19) 388149
+fw1829a, Add rules for Rx to Tarantella (Converted to ASA)
+fw2814a, B50 from 4526 moving to 2814 
+fw4905a, previously r4526
+fw0714a, RIT 1203115 - Pin pad access for students to access funds to pay for swy purchases
+fw1567a, RIT 1418313 - Additional PDX Access
+fw1483a, RIT 1428599 Print from EOM Server for 1483 store
+fw4603a, Permit Store 4603 PiggyBack on s1634g
+fw4604a, Permit Store 4603 PiggyBack on s1634g
+fw3521a, RITM0125514 Temp 0365 testing
+fw1471a, RITM0125514 Temp 0365 testing
+fw3285a,RITM0125514 Temp 0365 testing | RITM0164161 Temp test sites to access xculbc01-int
+fw0995a, RITM0125514 Temp 0365 testing
+fw1125a, RITM0125514 Temp 0365 testing
+fw0402a,RITM0125514 Temp 0365 testing | RITM0164161 Temp test sites to access xculbc01-int
+fw0910a, RITM0137373 Starbucks Loyalty Rewards project
+fw1953a, RITM0137373 Starbucks Loyalty Rewards project
+fw4705a,RITM0142842 Converting 2 users to be contact center agents in Santa Fe Springs Mail Order pharmacy
+fw1583a,RITM0141884,RITM0152584,RITM014188,RIT 1334757 and B50 Project
+fw2893a,RITM0146202 Par Pacific will be the company that remotely monitors the Veeder Root system in Hawaii
+fw2897a,RITM0146202 Par Pacific will be the company that remotely monitors the Veeder Root system in Hawaii
+fw2821a,RITM0145369 SRPC Pilot SME and CUBE test
+fw4602a,RITM0149561 Need to allow bi-directional communication from INT4602L1 to FMPO Server in ATLAS (pnv010698) for fuel pricing process.
+fw1070a,RITM0148845 for store POR1070 SRPC Pilot SME and CUBE test
+fw2155a,RITM0148849 for store SCA2155 SRPC Pilot SME and CUBE test
+fw1830a,RITM0164876 Rules for single user office for VLAN24
+fw1493a,RITM0164161 Temp test sites to access xculbc01-int
+fw3545a,RITM0164161 Temp test sites to access xculbc01-int
+fw1799a,RITM0164161 Temp test sites to access xculbc01-int
+fw0490a,RITM0164161 Temp test sites to access xculbc01-int
+fw1923a,RITM0164161 Temp test sites to access xculbc01-int
+fw2595a,RITM0167061 SRPC CUCM changes
+fw3257a,RITM0167065 SRPC CUCM changes
+fw3064a,RITM0167076 SRPC CUCM changes
+fw3650a,RITM0167079 SRPC CUCM changes
+fw3281a,RITM0167081 SRPC CUCM changes
+fw0041a,RITM0167087 SRPC CUCM changes
+fw1011a,RITM0167090 SRPC CUCM changes
+fw0982a,RITM0167097 SRPC CUCM changes
+fw1487a,RITM0167099 SRPC CUCM changes
+fw4318a,RITM0167105 SRPC CUCM changes
+fw0189a,RITM0167104 SRPC CUCM changes
+fw3161a,RITM0167107 SRPC CUCM changes
+fw3337a,RITM0167112 SRPC CUCM changes
+fw1805a,RITM0167118 SRPC CUCM changes
+fw2837a,RITM0167122 SRPC CUCM changes
+fw3613a,RITM0167126 SRPC CUCM changes
+fw2713a,RITM0167129 SRPC CUCM changes
+fw0803a,RITM0184737, floral employee in DEN0803 is hard of hearing and we have supplied her with a phone that has speech to text capabilities through a 3rd party
+fw1781a,RITM0185348, I need Store 1781 "M" switch port 21 to be on VLAN 19 and  to be able to communicate on port 18810
+fw9664a,RITM0181067,Lab 9664 requires Firewalls to PROD ATLAS servers for UAT testing from Rx business users/auditors.
+fw1830a,RITM0181362,orp store 1830 physically resides inside the Alaska Div office.  Users need ability to drop orders into SOLO via Excel
+fw0101a,RITM0189090,Fresh Department Inventory Project requires POC done in Store 0101. 
+fw0270a,Auto-Refill IVR is not working (Missing FW Rules)  
+fw2101a,PDX  - Pharmacy IVR unable to log refill request Error " due to technical difficulty
+fw4907a,do not deploy one-off config and acl refresh
+fw0017a,Patrol Distribution Manager systems to move into Atlas  (Track 5 - Monitoring Tools).
+fw1932a,Patrol Distribution Manager systems to move into Atlas  (Track 5 - Monitoring Tools).
+# 
+r9877,US Production Lab
+r9878,US Production Lab
+r9887,US Production Lab
+r9813,US Production Lab
+# end of data
+#
+# last edited by schou12 at 2018/05/18 14:19
+#

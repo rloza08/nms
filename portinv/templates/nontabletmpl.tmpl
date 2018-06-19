@@ -1,0 +1,36 @@
+  
+{%  if params['mask'] %}
+  <table cellspacing='0' cellpadding='0' width="100%">
+    <tr>
+       <td colspan='2'><b>&nbsp;<a href="javascript:display('index.py?param=qsel&mask={{params['mask']}}', 800, 600);">All ports on hosts matching</a></b></td>
+       <td colspan='2'><b>&nbsp;<a href="javascript:display('index.py?param=qsel&mask={{params['mask']}}&show=used', 800, 600);">Used ports on hosts matching</a></b></td>
+       <td colspan='2'><b>&nbsp;<a href="javascript:display('index.py?param=qsel&mask={{params['mask']}}&show=open', 800, 600);">Open ports on hosts matching</a></b></td>
+    </tr>
+    <tr>
+       <td colspan='2'><b>&nbsp;<a href="javascript:display('index.py?param=qsel&mask={{params['mask']}}&show=cdp', 800, 600);">CDP ports on hosts matching</a></b></td>
+       <td colspan='4'>&nbsp;</td>
+    </tr>
+  </table>
+  <hr/>
+{% endif %}
+  <table cellspacing='0' cellpadding='0' width="100%">
+    <tr>
+    {% for values in resPage %}
+       {% if loop.index == 1 %}
+          <tr>
+             <td colspan=6><h3> Hosts Matching: </h3></td>
+          </tr>
+       {% endif %}
+       {% if loop.index is divisibleby 6 %}
+             <td>&nbsp;<a href="javascript:display('index.py?param=qsel&host={{values[0]}}', 800, 600);">{{ values[0] }}</a></td>
+          </tr>
+          <tr>
+       {% else %}
+           <td>&nbsp;<a href="javascript:display('index.py?param=qsel&host={{values[0]}}', 800, 600);">{{ values[0] }}</a></td>
+       {% endif %}
+    {% else %}
+       <tr>
+         <td>&nbsp;No hosts found matching filters.</td>
+       </tr>
+    {% endfor %}
+  </table>

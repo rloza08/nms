@@ -1,0 +1,54 @@
+
+<html>
+    <title> Search Store ARP Tables for Base Addresses  </title>
+    <head>
+      <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+      <script src="js/main/main.js"></script>
+    </head>
+    <body>
+      <div id="content">
+        <div id="main_page">
+           <h3>Search Store ARP Tables for Base Addresses</h3>
+           <form method="post" action="index.py"> 
+              <input type='hidden' name='param' value='arpinvshow'/>
+              <center>
+                <table align=center width=95%>
+                  <tr>
+                    <td align=left valign=top>
+                      Select Store Subnet:
+                      <select name="site">
+                        {% for value in values[0] %}
+                         {% for items in value %}
+                          <option value ="{{items}}">{{items}}</option>
+                         {% endfor %}
+                        {% endfor %}
+                    </select>
+                  </td>
+                  <td align=left valign=top>Set range start:
+                      <input type="text" name="mask" value="{{params.mask}}" size="15" maxlength="15" />
+                  </td>
+                  <td align=left valign=top>Set range stop:
+                      <input type="text" name="vlan" value="{{params.vlan}}" size="15" maxlength="15" />
+                  </td>
+                  <td align=right width=15%>
+                    <input type="submit" name="button" value="Submit" />
+                  </td>
+              </tr>
+              <tr>
+                <td colspan=3>
+                  <br>For example, to find the APs at .45-.62 on VLAN e, do Subnet: e Start: 45 Stop: 62.
+                  <br>To search for a single offset leave the stop blank or re-use the start value
+                </td>
+              </tr>
+            </table>
+            </center>
+         </form>
+       </div>
+       <div id='res_div'>
+         {% if resPage != 'None' %}
+            {{ resPage|safe }}
+         {% endif %}
+       </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,554 @@
+Dashboard:
+    sequence: 1
+    tooltip: "Current Dashboards"
+    header: "Port Inventory and Capacity Planning Quick View Dashboard"
+    footer: '<h3>NOTICE: Cleanup and migration of tools is in progress for NMS Tools.</h3><h4>Obsolete and unused menu items are being removed. If a necessary item you need is removed please send an email to <br/><a href="mailto:mtrou00@safeway.com&Subject=NMS%20Tools" target ="_top">Mark Trout</a> with an explanation for the need and alternative methods for the functionality will be explored.</h4>'
+    tag:
+        Critical Circuits:
+            URL: "/perf-cgi/ss3x-tten.cgi?key=cc"
+            DESCR: "Current utilization and health critictal circuits"
+        Core Edge:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=ce"
+           DESCR: "Current utilization and health of core edge connections"
+        Core Layer:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=cl"
+           DESCR: "Current utilization and health of core layer LAN"
+        Corporate WAN:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=cw"
+           DESCR: "Current utilization and health of corporate WAN connections"
+        Corporate MAN:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=cm"
+           DESCR: "Current utilization and health of corporate MAN connections"
+        VSAT History:
+           URL: "/perf-cgi/vsat-details.cgi"
+           DESCR: "View daily VSAT events and utilization"
+        Device Availability:
+           URL: "/perf/ss-avail.html"
+           DESCR: "Historical device availability by group"
+        Device Type Inventory:
+           URL: "/pidb/oid_inv.cgi"
+           DESCR: "Show Inventory by Device Type and Location"
+        Subnet Usage:
+           URL: "/pidb/snet_summ.cgi"
+           DESCR: "Show Subnet Summaries for Backstage and Stores and Assigned Usage for Stores"
+        Store NetX:
+           URL: "/perf-cgi/st-netX.cgi"
+           DESCR: "Generate full listing by store of NetA-NetH definitions"
+        Statseeker Groups:
+           URL: "/perf-cgi/sspr_xref.cgi"
+           DESCR: "Statseeker group definitions and assignments"
+        Miscellaneous Reports:
+           URL: "/perf-cgi/miscstat.cgi"
+           DESCR: "Miscellaneous reporting for special projects"
+        Find Edge:
+           URL: "/pidb/lan2edge.cgi"
+           DESCR: "Find LAN and speed of edge connection for a given backstage address or DNS hostname"
+Port Inventory:
+    sequence: 2
+    tooltip: "Port Inventory reports and Tools v3"
+    header: "Safeway NMS Port Inventory and Topology Utilities"
+    footer:
+    tag:
+        Quick Select:
+           URL: "javascript: display('index.py?param=qsel', 800, 600);"
+           DESCR: "Launch port views by group or mask"
+        Backstage Port Inventory Database Utilities:
+           URL: "javascript: display('index.py?param=bsport', 800, 600);"
+           DESCR: "Show backstage switch inventory summaries and connection views"
+        Store Port Inventory Database Utilities:
+           URL: "javascript: mainPageAjax('submenu:Port Inventory');"
+           DESCR: "Utilities to query store switch inventories"
+        ARP Based Device Inventory:
+           URL: "/pidb/arp-inventory.cgi"
+           DESCR: "Show store inventories summaries based on ARP data and VLAN assignments"
+        ARP Search:
+           URL: "javascript: display('index.py?param=arpinvshow', 800, 600);"
+           DESCR: "Search store ARP tables for addresses at given offset(s)"
+        ARP/FDB Based Device Inventory:
+           URL: "/pidb/fdb-inventory.cgi"
+           DESCR: "Store Device Counts from Port Inventory Based on Assigned Addresses"
+        PIdb MAC/Addr Search:
+           URL: "javascript: display('index.py?param=mac_addr', 800, 600);"
+           DESCR: "Search Port Inventory for MACs, IPs, or Hostnames"
+        PIdb Subnet/VLAN Search:
+           URL: "/pidb/vlan_srch.cgi"
+           DESCR: "Search subnets and VLANs for a given address or vlan number"
+        Unused Ports:
+           URL: "/pidb/freeport.cgi"
+           DESCR: "Search Port Inventory for unused ports on given switches"
+        Slot Usage:
+           URL: "/pidb/slotsumm.cgi"
+           DESCR: "Use search pattern to build list of port usage by slot on matching switches"
+        Data Center Ports:
+           URL: "/pidb/corepinv.cgi"
+           DESCR: "Data Center port inventory and availability reports"
+        Data Center VLANs:
+           URL: "/pidb/dc-vlan-use.cgi"
+           DESCR: "Data Center VLAN usage reports"
+        ARP Impact:
+           URL: "/pidb/arp-assoc.cgi"
+           DESCR: "Show ARP associations on given network devices and neighbors including FWSMs and LBs for potential change impacts"
+        Subnet Usage:
+           URL: "/pidb/snet_summ.cgi"
+           DESCR: "Show Subnet Summaries for Backstage and Stores and Assigned Usage for Stores"
+        VLAN BS Summaries:
+           URL: "/pidb/vlan_inv-bs.cgi"
+           DESCR: "Port counts by VLAN for backstage locations"
+        VLAN ST Summaries:
+           URL: "/pidb/vlan_inv-st.cgi"
+           DESCR: "Port counts by VLAN for retail locations"
+        VLAN Snet:
+           URL: "/pidb/vlansnet.cgi"
+           DESCR: "Resolve address to VLAN or VLAN to address for data centers"
+        Device Inventory by OID:
+           URL: "/pidb/oid_inv.cgi"
+           DESCR: "Show inventory by device type and location based on sysObjectID"
+        Device Inventory by IOS:
+           URL: "/pidb/ios_inv.cgi"
+           DESCR: "Show inventory by IOS version"
+        Device Inventory by Location:
+           URL: "/pidb/loc_inv.cgi"
+           DESCR: "Show model counts by group and location"
+        Switch Location by IDF D/S:
+           URL: "/pidb/pi_idf-maps-ds.cgi"
+           DESCR: "Show switch IDF location for distribution and supply based on sysLocation and ifAliases"
+        Switch Location by IDF Backstage:
+           URL: "/pidb/pi_idf-maps-bs.cgi"
+           DESCR: "Show switch IDF location for backstage based on sysLocation and ifAliases"
+        Inventory Variance:
+           URL: "/pidb/inv-variance.cgi"
+           DESCR: "Show hardware and IOS variance by business area"
+        HPNA Inventory Summary:
+           URL: "/hpna/hpna-inv-summ.cgi"
+           DESCR: "Show vendor, type, and model based on HPNA inventory"
+        CMDB Compare:
+           URL: "/cmdb/cmdb-compare.cgi"
+           DESCR: "Compare copies of CMDB network inventory to other sources"
+        Exception Reports:
+           URL: "/pidb/pidb_stat.cgi"
+           DESCR: "Show exception reports and polling status and status of various PIdb processes"
+        CDP/DNS Exceptions:
+           URL: "/pidb/pidb_exceptions.cgi"
+           DESCR: "Show DNS exceptions or devices with unknown or unreachable CDP neighbors"
+        Inventory Changes:
+           URL: "/pidb/pidb_chng.cgi"
+           DESCR: "Search for changes, additions or deletions in the PIdb based on hostname"
+Planning:
+    sequence: 3
+    tooltip: "Capacity Planning Reports and Tools"
+    header: "Capacity Planning Reports and Tools"
+    footer:
+    Scorecard Reporting:
+        Quarterly:
+           URL: "/cp-cgi/scorecard.cgi"
+           DESCR: "Quarterly Scorecard reports for Enterprise Capacity Planning"
+        Criticals:
+           URL: "/cp-cgi/critcirc.cgi"
+           DESCR: "Quarterly Scorecard reports for Critical Circuits"
+        Hot Spots PDF:
+           URL: "/cp/hotspots.pdf"
+           DESCR: "Monthly Hotspot reports"
+        Net Facts PDF:
+           URL: "/cp/net-fact.pdf"
+           DESCR: "Monthly high level network facts and statistics"
+    Core Edge, WL, and CL Reporting:
+        Core Hot Spots 24:
+           URL: "/cp/corerpts-24wk.html"
+           DESCR: "Top Core Circuit and Port Utilizations based on 24 week anaylsis"
+        Core Hot Spots 12:
+           URL: "/cp/corerpts-12wk.html"
+           DESCR: "Top Core Circuit and Port Utilizations based on 12 week anaylsis"
+        Core Forecasting:
+           URL: "/cp-cgi/core-reports.cgi"
+           DESCR: "Core Circuit and Port analysis based on hourly bytes transfered"
+        Data Center Ports:
+           URL: "/pidb/corepinv.cgi"
+           DESCR: "Data Center port inventory and availability reports"
+    Backstage Reporting:
+        Hot Spots 24:
+           URL: "/cp/hotspots-24wk.html"
+           DESCR: "Top Backstage Circuit Utilizations based on 24 week anaylsis"
+        Hot Spots 12:
+           URL: "/cp/hotspots-12wk.html"
+           DESCR: "Top Backstage Circuit Utilizations based on 12 week anaylsis"
+        Utilization Forecasting:
+           URL: "/cp-cgi/wan-cutrend.cgi"
+           DESCR: "Circuit anaylsis and forecasting tool based on hourly bytes transfered"
+    Retail Reporting:
+        Retail Division Utilization:
+           URL: "/cp/rdiv_avg.html"
+           DESCR: "Circuit utilization by retail division for last 4 weeks"
+        Threshold Exceptions:
+           URL: "/cp-cgi/wan-thtrend-st.cgi"
+           DESCR: "Top 20 reports for Retail WAN circuits in 15 minute periods over utilization threshold"
+        Subnet Usage:
+           URL: "/pidb/snet_summ.cgi"
+           DESCR: "Show Subnet Summaries for Backstage and Stores and Assigned Usage for Stores"
+Projects:
+    sequence: 4
+    tooltip: "Tools and reports for projects and special requests"
+    header: "Network Engineering Project Tools and Reporting"
+    footer: "<ol></ol><h4>NOTE: Menu items will change as new projects are added and old ones removed.</h4> <ol></ol><h4>VoIP tools removed 02/18/2015<br>RNR tools removed 03/21/2017<br>2950 tools removed 07/14/2017</h4><ol></ol>"
+    tag:
+        Miscellaneous Reports:
+           URL: "/proj-cgi/miscstat.cgi"
+           DESCR: "Miscellaneous reporting for special projects"
+        ARP Site Comparison:
+           URL: "/pidb/arp-sitecomp.cgi"
+           DESCR: "Compare current ARP and MAC tables to recent port inventory"
+        RISE User Tools:
+           URL: "/proj/rise.html"
+           DESCR: "User tools for RISE uplift"
+        RISE Seed Test:
+           URL: "/proj-cgi/rise/rise-testseed.cgi"
+           DESCR: "Build and view RISE configurations for firewall, and switches"
+        RISE Logs:
+           URL: "/proj-cgi/rise/rise-view-logs.cgi"
+           DESCR: "View process logs for RISE scripts"
+        Duplex Logs:
+           URL: "/proj-cgi/rise/duplex-syslogs.cgi"
+           DESCR: "View duplex mismatch syslog messages"
+        SNMP VLAN:
+           URL: "/proj-cgi/rise/rise-pidb-check.cgi"
+           DESCR: "Test SNMP v3 VLAN context on WL switches"
+        ABS User Tools:
+           URL: "/proj/abs.html"
+           DESCR: "User tools for ABS Merger"
+        New Store DNS:
+           URL: "/proj-cgi/st-new-dns.cgi"
+           DESCR: "Create DNS listing for a new store"
+        HPNA Task Status:
+           URL: "/hpna/hpna-task-list.cgi"
+           DESCR: "View recent task history for a given store."
+        HPNA Hardening:
+           URL: "/hpna/hpna-show-cred.cgi"
+           DESCR: "View hardening status for a given store."
+        HPOO Flows:
+           URL: "javascript: mainPageAjax('submenu:HPOO Flows');"
+           DESCR: "Miscellaneous Flows for Host Information"
+        Meraki Tools:
+           URL: "javascript: mainPageAjax('submenu:Meraki Tools');"
+           DESCR: "User tools for Meraki uplift"
+        Aruba Uplift Tools:
+           URL: "javascript: mainPageAjax('submenu:Aruba Uplift Tools');"
+           DESCR: "Distribution Center Switch Tools for Aruba Uplift"
+Tools:
+    sequence: 5
+    tooltip: "Miscellaneous tools and reporting"
+    header: "Miscellaneous Network Engineering and ENS Tools"
+    footer:
+    Rollouts:
+        ACL Rollouts:
+           URL: "/menu-cgi/menu.cgi?item=025.025.000"
+           DESCR: "Tools for monitoring and verifying Store ACL rollouts"
+        Misc Rollouts:
+           URL: "/menu-cgi/menu.cgi?item=025.030.000"
+           DESCR: "Miscellaneous rollout tools and config builders"
+    Quick Status Viewers:
+        NetFlow:
+           URL: "/menu-cgi/menu.cgi?item=025.045.000"
+           DESCR: "Show prefiltered net-flows with hostnames and sites resolved based on Statseeker v3.x collections"
+        Syslog Tools:
+           URL: "/menu-cgi/menu.cgi?item=025.050.000"
+           DESCR: "Search tools for network device syslogs"
+        HPOO Quick Stat:
+           URL: "/menu-cgi/menu.cgi?item=025.055.000"
+           DESCR: "Common retail status viewers using HPOO and HPNA"
+        HPOO Update Flows:
+           URL: "/menu-cgi/menu.cgi?item=025.060.000"
+           DESCR: "Common HPOO flows for simple retail device hardening and verification via HPNA"
+        Test Store SNMP:
+           URL: "/misc-cgi/st-testcred.cgi"
+           DESCR: "Test default SNMP strings against a store's network devices"
+        Test Host SNMP:
+           URL: "/misc-cgi/bs-testcred.cgi"
+           DESCR: "Test default SNMP strings against a given host and its neighbors"
+    Miscellaneous Tools:
+        Store NetX:
+           URL: "/perf-cgi/st-netX.cgi"
+           DESCR: "Generate full listing by store of NetA-NetH definitions"
+        New Store DNS:
+           URL: "/misc-cgi/st-new-dns.cgi"
+           DESCR: "Generate DNS address listing for a new store"
+        New Store Build:
+           URL: "/menu-cgi/menu.cgi?item=025.100.000"
+           DESCR: "Tools to configure new stores and add to HPNA"
+        Create DNS List:
+           URL: "/misc-cgi/st-bulk-dns.cgi"
+           DESCR: "Generate bulk DNS hostname and address list for new store devices"
+        Search DNS:
+           URL: "/misc-cgi/dns-srch.cgi"
+           DESCR: "Search Safeway DNS using search patterns"
+        Resolve IP:
+           URL: "/misc-cgi/itnmhost.cgi"
+           DESCR: "Identify via Netcool ITNM which device an IP interface is on, even if not defined in DNS"
+        Find Manufacturer:
+           URL: "/misc-cgi/find-manf.cgi"
+           DESCR: "Search weekly downloads of IEEE and IANA tables determine manufacturer's MAC or OID"
+        View Arptab:
+           URL: "/misc-cgi/view-arptab.cgi"
+           DESCR: "Dump ARP table on a network device showing resolved hostnames and manufacturers"
+        View Port Specs:
+           URL: "/misc-cgi/view-portspec.cgi"
+           DESCR: "Dump port, addr, and VLAN info on a network device"
+        View Host Info:
+           URL: "/pidb/hostinfo.cgi"
+           DESCR: "Show which monitoring applications know about a network device and by what address"
+        NMS Traceroute:
+           URL: "/misc-cgi/nmstraceroute.cgi"
+           DESCR: "Traceroute from this server with hops resolved from available port info"
+        R2H Traceroute:
+           URL: "/misc-cgi/r2htraceroute.cgi"
+           DESCR: "Traceroute from a router to a host with hops resolved from available port info"
+        Find Subnet:
+           URL: "/misc-cgi/find_snet.cgi"
+           DESCR: "Find subnets and related network device Host:Port for a given address or hostname"
+        Find Edge:
+           URL: "/pidb/lan2edge.cgi"
+           DESCR: "Find LAN and speed of edge connection for a given backstage address or DNS hostname"
+        CIPS Locations:
+           URL: "/misc-cgi/srchcips.cgi"
+           DESCR: "Simple searches on CIPS data to find hosts by city, state, or zip"
+        CIPS Lookup:
+           URL: "/misc-cgi/bulkcips.cgi"
+           DESCR: "Do bulk CIPS lookups from list of CIDs"
+        HPNA Reports:
+           URL: "/hpna/hpna-stat-inv.cgi"
+           DESCR: "HPNA (NAS) group reporting and inventory listings"
+        SL ARP Inv:
+           URL: "/pidb/arp-assoc.cgi"
+           DESCR: "Show server layer device associations on given switch and neighbors including FWSMs and LBs"
+        VLAN Snet:
+           URL: "/misc-cgi/vlansnet.cgi"
+           DESCR: "Resolve address to VLAN or VLAN to address for data centers"
+        Find Config:
+           URL: "/hpna/hpna-srch-shadow.cgi"
+           DESCR: "Search for the presence of a config setting"
+Statseeker:
+    sequence: 6
+    tooltip: "Statseeker Network Monitoring Tools"
+    header: "Statseeker Reporting and Quick Views"
+    footer:
+    tag:
+        SSv3x Console:
+           URL: "http://statseeker/cgi/nimc01?user_mode=1"
+           DESCR: "Statseeker v3x. Requires login and IE7 or Firefox browser"
+        SSv3x NetFlow:
+           URL: "http://statseeker/cgi/nimc02?report=24"
+           DESCR: "Statseeker v3x Traffic Analyzer"
+        Core Edge:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=ce"
+           DESCR: "Current utilization and health of core edge connections"
+        Corporate WAN:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=cw"
+           DESCR: "Current utilization and health of corporate WAN connections"
+        Corporate MAN:
+           URL: "/perf-cgi/ss3x-tten.cgi?key=cm"
+           DESCR: "Current utilization and health of corporate MAN connections"
+        Critical Ports:
+           URL: "/perf/port_sla.html"
+           DESCR: "Concurrent port outage events for critictal circuits"
+        More Statseeker 3x Views:
+           URL: "/perf-cgi/ss3x-tten.cgi"
+           DESCR: "More pre-filtered Statseeker v3.x views"
+        More Statseeker 38 Views:
+           URL: "/perf-cgi/ssqa-tten.cgi"
+           DESCR: "More pre-filtered Statseeker v3.8 views"
+        Device Availability:
+           URL: "/perf/ss-avail.html"
+           DESCR: "Historical device availability by group"
+ITNM:
+    sequence: 7
+    tooltip: "ITNM Reporting"
+    header: "ITNM Tools"
+    footer:
+    Status Viewers:
+        AEL Shadow:
+           URL: "/slog-nrt/ncshadow.html"
+           DESCR: "Netcool/Omnibus Active Event List shadow log"
+        Host Info:
+           URL: "/pidb/hostinfo.cgi"
+           DESCR: "Show which monitoring applications know about a network device and by what address"
+        Rules Sync:
+           URL: "/itnm-cgi/itnm-rule-comp.cgi"
+           DESCR: "Report dates and size of rules file against golden copy"
+HPNA:
+    sequence: 8
+    tooltip: "HPNA Tools and reporting"
+    header: "HPNA Tools"
+    footer:
+    tag1:
+        CSV Tool:
+           URL: "/hpna/hpna-make-csv.cgi"
+           DESCR: "Create CSV files with variables needed to run HPNA command scripts"
+        CSV List:
+           URL: "/hpna/hpna-list-csv.cgi"
+           DESCR: "Create simple CSV list to run HPNA command scripts"
+        Daily Reporting:
+           URL: "/hpna/hpna-stat-inv.cgi"
+           DESCR: "HPNA group reporting and inventory listings based on morning data pulls."
+        Inventory Summary:
+           URL: "/hpna/hpna-inv-summ.cgi"
+           DESCR: "Show vendor, type, and model based on HPNA inventory"
+        Search Shadow:
+           URL: "/hpna/hpna-srch-shadow.cgi"
+           DESCR: "Search shadow copies of HPNA configuration archives"
+        Search Archives:
+           URL: "/hpna/hpna-srch-deleted.cgi"
+           DESCR: "Search for the presence of a config setting in archived configs"
+        Configs:
+           URL: "/hpna/hpna-view-shadow.cgi"
+           DESCR: "View shadow copies of HPNA configuration archives (restricted)"
+        Task Status:
+           URL: "/hpna/hpna-task-list.cgi"
+           DESCR: "View recent task history for a given store."
+        Add Retail Host:
+           URL: "/hpoo/hpoocall.cgi?item=26&call"
+           DESCR: "Add retail host to HPNA inventory and assign to existing group"
+        Config Diff:
+           URL: "/hpna/cfg-diff.cgi"
+           DESCR: "Compare like device config between retail sites"
+        ACL Pushes:
+           URL: "javascript: mainPageAjax('submenu:ACL Pushes');"
+           DESCR: "Tools for monthly retail ACL updates"
+    tag2:
+        HPNA:
+           URL: "https://hpna-prod"
+           DESCR: "HPNA (Opsware-NAS)"
+        HPNA Parser:
+           URL: "/hpna/hpna-parse-session-log.cgi"
+           DESCR: "Tool for parsing HPNA session logs for easier reading"
+        Host Info:
+           URL: "/pidb/hostinfo.cgi"
+           DESCR: "Show which monitoring applications know about a network device and by what address"
+        Aruba Snapshots:
+           URL: "/hpna/hpna-awc-snapshot.cgi"
+           DESCR: "Update Aruba snapshots and info tables"
+        Aruba AP Summary:
+           URL: "/hpna/hpna-aruba-ap-summ.cgi"
+           DESCR: "Show Aruba AP Count Summaries from HPNA diagnostics. Use snapshots to refresh data."
+        Aruba AP Areas:
+           URL: "/hpna/hpna-aruba-ap-area.cgi"
+           DESCR: "Show Aruba AP Area counts by site and controller from HPNA diagnostics."
+        Aruba Licenses:
+           URL: "/hpna/hpna-aruba-licenses.cgi"
+           DESCR: "Show Aruba Controller Licenses from HPNA diagnostics. Use snapshots to refresh data."
+        Aruba Visitor Net:
+           URL: "http://collab.safeway.com/it/NetEng/Visitor%20Net%20Reports/Forms/AllItems.aspx"
+           DESCR: "Aruba wireless users report."
+        IPAM Compare:
+           URL: "/hpna/ipam-snet-upload.cgi"
+           DESCR: "Upload and compare Men&Mice subnet data"
+Admin:
+    sequence: 9
+    tooltip: "Administration tools"
+    header: "System Monitoring and Admin Tools"
+    footer:
+    tag:
+        Process Statuses:
+           URL: "/smon-cgi/procstat.cgi"
+           DESCR: "Show status of various local Capacity Planning processes"
+        Process Statuses for PIdb:
+           URL: "/pidb/pidb_stat.cgi"
+           DESCR: "Show status of various Port Inventory processes"
+        View Last Status Logs:
+           URL: "/smon-cgi/laststat.cgi"
+           DESCR: "View /tmp/*.log files from cron jobs"
+        Inventory Comparison:
+           URL: "/smon-cgi/inv-comp.cgi"
+           DESCR: "Compare inventories between various sources"
+        Fix Groups:
+           URL: "/smon-cgi/fix-groups.cgi"
+           DESCR: "Fix group memberships in HPNA and Statseeker"
+        Statseeker Config:
+           URL: "/smon-cgi/ss3x-add.cgi"
+           DESCR: "Create config data for Statseeker discovery"
+        Definitions:
+           URL: "/perf-cgi/sspr_xref.cgi"
+           DESCR: "Statseeker group definitions and port assignments"
+        Settings:
+           URL: "/perf-cgi/sspr_comp.cgi"
+           DESCR: "Compare port rate definitions between various SOAs"
+        Adhoc SQL:
+           URL: "/smon-cgi/adhoc-sql.cgi"
+           DESCR: "Do adhoc queries on local MySQL databases"
+        Adhoc NCIM:
+           URL: "/itnm-cgi/ncim-adhoc.cgi"
+           DESCR: "Do adhoc queries on NetCool NCIM database on phcgpr36"
+        NMS User Reports:
+           URL: "/smon-cgi/user-audit.cgi"
+           DESCR: "Show user access reports for NMS Tools"
+        FW Rules:
+           URL: "/fw/fw_rules.html"
+           DESCR: "Firewall tools"
+        Edit/Compare:
+           URL: "/smon-cgi/miscedit.cgi"
+           DESCR: "Edit scripts and lookup tables for SNMS apps comparing PROD to DV"
+        Edit/Compare:
+           URL: "/smon-cgi/misceditDV2PR.cgi"
+           DESCR: "Edit scripts and lookup tables for SNMS apps comparing DV to PROD"
+        Edit/Compare:
+           URL: "/smon-cgi/misceditQA2DV.cgi"
+           DESCR: "Edit scripts and lookup tables for SNMS apps comparing QA to DV"
+        Edit/Comp SS:
+           URL: "/smon-cgi/ss3xcomp.cgi"
+           DESCR: "Edit scripts and lookup tables for SS3x in-house scripts comparing phcgqa99 to phvgdv67"
+        Compare MIBs :
+           URL: "/smon-cgi/mib-comp.cgi"
+           DESCR: "Compare deployed MIBs comparing phvgdv67 to phvgsb28"
+        Translate MIBs :
+           URL: "/smon-cgi/mib-defs.cgi"
+           DESCR: "Dump translations of MIBs in local inventory"
+        Orphans:
+           URL: "/smon-cgi/menu-orphans.cgi"
+           DESCR: "View menu orphans"
+        Find Code:
+           URL: "/smon-cgi/findcode.cgi"
+           DESCR: "Search SNMS directories for code containing pattern"
+        Schemas:
+           URL: "/smon-cgi/map_schema.cgi"
+           DESCR: "Show field xref and table definitions for all NMS application databases"
+        Test ENV:
+           URL: "/smon-cgi/printenv.cgi"
+           DESCR: "Show CGI ENV variables"
+        Cisco:
+           URL: "/menu-cgi/menu.cgi?item=055.145.000"
+           DESCR: "Cisco network appliances"
+        HPNA:
+           URL: "/menu-cgi/menu.cgi?item=055.150.000"
+           DESCR: "HPNA application servers and tools"
+        HPOO:
+           URL: "/menu-cgi/menu.cgi?item=055.155.000"
+           DESCR: "HPOO application servers and tools"
+        ClearPass Prod:
+           URL: "https://phvapz06.safeway.com/guest/auth_login.php"
+           DESCR: "ClearPass Wireless Console - Production"
+        ClearPass Test:
+           URL: "https://10.51.1.26/guest/auth_login.php"
+           DESCR: "ClearPass Wireless Console - Testing"
+        HPNA 10 Man:
+           URL: "/smon/NA_cli_api_command_ref_10.11.html"
+           DESCR: "HPNA 10.x CLI/API Reference"
+        M&M SOAP:
+           URL: "http://ipamtool/menandmice/soapdoc.htm"
+           DESCR: "Men&Mice SOAP Reference"
+        Rollouts:
+           URL: "http://phcnpr91:90/quarter"
+           DESCR: "Hardware Rollout Calendar"
+        New Store:
+           URL: "/smon-cgi/prse-newstore.cgi"
+           DESCR: "New and closed store lists"
+        Company Wide:
+           URL: "/hpna/tmp/company_wide.xls"
+           DESCR: "Working copy of last downloaded company_wide store listing"
+        Master Fuel:
+           URL: "/hpna/tmp/master_fuel.xls"
+           DESCR: "Working copy of last downloaded master_fuel station listing"
+        Other Tools:
+           URL: "https://phvgdv67.safeway.com/work/testing.html"
+           DESCR: "Miscellaneous tools under developemnt"
+Search:
+    sequence: 10
+    tooltip: "Search Menu Items, Links and Descriptions"
+    footer:
+

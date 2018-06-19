@@ -1,0 +1,90 @@
+
+<html>
+    <title> PIdb Search </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+    </head>
+    <body>
+      <div id="content">
+        <div id="main_page">
+           <form method="post" action="index.py" enctype="multipart/form-data"> 
+              <input type='hidden' name='param' value='mac_addr'/>
+		<table rows=1 cols=5 border=0 width=100%>
+                  <tr><td>&nbsp;</td></tr>
+		  <tr>
+		    <td align=left valign=top><b>PIdb Search</b>
+		      <br>Enter search items:</td>
+		    <td align=left  valign=top width=25%>
+                    {% if params['srch'] %}
+			<textarea name="srch" rows="3" cols="20" >{{ params['srch'] }}</textarea>
+                    {% else %}
+			<textarea name="srch" rows="3" cols="20" ></textarea>
+                    {% endif %}
+		    </td>
+		    <td align=right valign=top><br/> or filename:</td>
+		    <td align=left  valign=top>
+		      <br/>
+                      {% if params['file'] %}
+		          <input type="file" name="file" value="{{ params['file'] }}"/>
+                      {% else %}
+		          <input type="file" name="file" />
+                      {% endif %}
+		    </td>
+		    <td align=left valign=top>Search
+                        {% if params['type'] == 'ARP' %}
+			    <label><input type="radio" name="type" value="MAC"/>MAC</label>
+			    <label><input type="radio" name="type" value="ARP" checked="checked"/>ARP</label>
+                        {% else %}
+			    <label><input type="radio" name="type" value="MAC" checked="checked"/>MAC</label>
+			    <label><input type="radio" name="type" value="ARP"/>ARP</label>
+                        {% endif %}
+		      <p/>
+		      <span title='Clear text box and filename'>
+			<input type="reset"  name="Reset " value="Reset"/>
+		      </span>
+		      &nbsp;
+		      <input type="submit" name="Submit" value="Submit"/>
+		    </td>
+		  </tr>
+		</table>
+              </center>
+            </form>
+          </div>
+          <div id='res_div'>
+            {% if resPage %}
+               <table cellspacing='2' cellpadding='2' width='100%'>
+                 <tr>
+                   <td><b> MAC Address </b></td>
+                   <td><b> Switch Name </b></td>
+                   <td><b> Port </b></td>
+                   <td><b> VLAN </b></td>
+                   <td><b> IP Address </b></td>
+                   <td><b> DNS Name </b></td>
+                   <td><b> Port Description </b></td>
+                   <td><b> OUI Vendor </b></td>
+                   <td><b> Date Seen </b></td>
+                 </tr>
+                 {% for key in resPage %}
+                   {% set li = resPage[key].split("\t") %}
+                     <tr>
+                       {% for value in li %}
+                         <td> 
+                           {% if loop.index == 2 %}
+                              <a href="javascript:display('index.py?param=qsel&host={{ value }}', 800, 600);">{{ value }}</a>
+                           {% else %}
+                               {{ value }}
+                           {% endif %}
+                         </td>
+                       {% endfor %}
+                     </tr>
+                 {% endfor %}
+               </table>
+            {% else %}
+               <h2>PIdb Search</h2> <p/><h3>Enter a list of MACs, IPs or Hostnames or a file with one item per line.<p> MACs should be xx-xx-xx-xx-xx-xx or xxxx.xxxx.xxxx format.<p> Enter the first half of a MAC in xx-xx-xx or xxxx.xx format for wildcard search on OUI.<p> Do not mix OUIs with MACs and/or IPs.<p> Data in text box is ignored if file upload is used.<p> Use <i>Reset</i> button clear search text and filename.</h3>
+            {% endif %}
+          </div>
+       </div>
+  </body>
+</html>
+

@@ -1,0 +1,54 @@
+
+<html>
+    <title> Backstage Port Inventory Database Utilities </title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/qsel.css"/>
+        <script src="js/main/main.js"></script>
+    </head>
+    <body>
+      <div id="content">
+        <div id="main_page">
+           <h3>Backstage Switch Port Query Tool </h3>
+           <form method="post" action="index.py"> 
+              <input type='hidden' name='param' value='bsport'/>
+              Use <i>Search Criteria</i> where indicated in query selections
+              <center>
+                <table align=center width=95%>
+                  <tr><td>&nbsp;</td></tr>
+                  <tr>
+                    <td align=left valign=top>
+                      Select Query Type:
+                      <select name="Sql">
+                       {% for key in values %}
+                          {% if 'Sql' in params %}
+                             {% if params['Sql'] == key %}
+                                <option value="{{key}}" selected>{{key}}</option>
+                             {% else %}
+                                <option value="{{key}}">{{key}}</option>
+                             {% endif %}
+                          {% else %}
+                             <option value="{{key}}">{{key}}</option>
+                          {% endif %}
+                       {% endfor %}
+                     </select>
+                    </td>
+                    <td align=left valign=top>Search criteria:
+                      <input type="text" name="srch" value="{{params.srch}}" size="15" maxlength="15" />
+                    </td>
+                    <td align=right width=15%>
+                      <input type="submit" name="button" value="Submit" />
+                    </td>
+                  </tr>
+                </table>
+              </center>
+            </form>
+          </div>
+          <div id='res_div'>
+            {% if resPage != 'None' %}
+              {{ resPage|safe }}
+            {% endif %}
+          </div>
+       </div>
+  </body>
+</html>
+
