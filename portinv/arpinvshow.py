@@ -8,22 +8,24 @@ from common.dbconnect import DbConnect
 from portinv.common.tmplparser import PageGenerator
 
 class ArpInvShow:
-        def __init__(self):
-                self.db = DbConnect('pidb')
-                self.db.connect()
-		
-        def getStoreSubnet(self):
-                self.StoreSubnets = ['a','b','c','d','e','f','g','h']
-                return self.StoreSubnets
+	def __init__(self):
+		self.db = DbConnect('pidb')
+		self.db.connect()
 
-        def getSiteGroupValues(self):
-                self.values = self.db.select_query("""select base,name from basexref where name <> 'unassigned';""")
-                return self.values
+	def getStoreSubnet(self):
+		self.StoreSubnets = ['a','b','c','d','e','f','g','h']
+		return self.StoreSubnets
 
-        def mainPage(self, formField):
-                siteGroupValues = []
-                siteGroupValues.append([self.getStoreSubnet()])
+	def mainPage(self, formField):
+		siteGroupValues = []
+		siteGroupValues.append([self.getStoreSubnet()])
+		restmpl = None
+		resPage = None
+		beg = None
+		end = None
+		params = {'beg': '', 'end': ''}
 
-                genObj = PageGenerator('arpinvshow.tmpl')
-                html = genObj.pageGenerate('',siteGroupValues)
-                return html
+		genObj = PageGenerator('arpinvshow.tmpl')
+		html = genObj.pageGenerate(restmpl, siteGroupValues, resPage, params)
+		#html = genObj.pageGenerate('', siteGroupValues)
+		return html
